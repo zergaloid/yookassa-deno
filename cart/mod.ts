@@ -1,4 +1,4 @@
-import {Checkout} from '../mod.ts';
+import { Checkout } from '../mod.ts';
 
 export default class YookassaCart {
     items: Record<string, number>;

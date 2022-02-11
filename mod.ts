@@ -1,6 +1,6 @@
 import { v4 } from "https://deno.land/std/uuid/mod.ts";
 
-interface Payment {
+export interface Payment {
     amount: {
         value: string;
         currency: string;
@@ -87,4 +87,4 @@ class Checkout {
 }
 
 import YookassaCart from "./cart/mod.ts";
-export { YookassaCart, Checkout, Payment };
+export { YookassaCart, Checkout };
