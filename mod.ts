@@ -1,6 +1,6 @@
 import { v4 } from "https://deno.land/std/uuid/mod.ts";
 
-export interface Payment {
+interface Payment {
     amount: {
         value: string;
         currency: string;
@@ -8,7 +8,7 @@ export interface Payment {
     description?: string,
     receipt?: {
         customer: {
-            full_name?: string ;
+            full_name?: string;
             inn?: string;
             email?: string;
             phone?: string;
@@ -55,7 +55,7 @@ export interface Payment {
     merchant_customer_id?: string;
 }
 
-export default class Checkout {
+class Checkout {
     url = "https://api.yookassa.ru/v3/payments";
     request: RequestInit;
     constructor(id: number, key: string) {
@@ -85,3 +85,6 @@ export default class Checkout {
         })
     }
 }
+
+import YookassaCart from "./cart/mod.ts";
+export { YookassaCart, Checkout, Payment };
