@@ -1,18 +1,15 @@
 import { Checkout } from '../mod.ts';
 
-export default class YookassaCart {
-    items: Record<string, number>;
+export default class Session {
     checkout: Checkout;
     currency: string;
     return_url: string;
-    constructor(checkout: Checkout, items: Record<string, number>, meta: Record<string, string>) {
-        this.items = items || []
+    constructor(checkout: Checkout, meta: Record<string, string>) {
         this.checkout = checkout
         this.currency = meta.currency
         this.return_url = meta.return_url
     }
-    async pay(description: string, items: string[]) {
-        const amount = items.map((item: string) => this.items[item]).reduce((a: number, b: number) => a + b, 0)
+    async pay(description: string, amount: number) {
         const payment = await this.checkout.execute({
             amount: {
                 value: amount.toFixed(2),
@@ -24,6 +21,6 @@ export default class YookassaCart {
             },
             description
         })
-        return payment.confirmation.confirmation_url;
+        return payment;
     }
 }

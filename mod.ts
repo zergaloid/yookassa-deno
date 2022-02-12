@@ -86,5 +86,5 @@ class Checkout {
     }
 }
 
-import YookassaCart from "./cart/mod.ts";
-export { YookassaCart, Checkout };
+import Session from "./session/mod.ts";
+export { Session, Checkout };
