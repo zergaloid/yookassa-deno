@@ -87,5 +87,4 @@ class Checkout {
 }
 
 import Session from "./session/mod.ts";
-export Session;
-export { Checkout };
+export { Checkout, Session };
